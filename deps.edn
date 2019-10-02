@@ -1,7 +1,7 @@
 {:paths   ["src/main"]
 
  :deps    {com.taoensso/timbre       {:mvn/version "4.10.0"}
-           com.fulcrologic/fulcro    {:local/root "/Users/tonykay/fulcrologic/fulcro"}
+           com.fulcrologic/fulcro    {:mvn/version "3.0.2-SNAPSHOT"}
            org.clojure/clojurescript {:mvn/version "1.10.520" :scope "provided"}}
 
  :aliases {:dev {:extra-deps {binaryage/oops       {:mvn/version "0.7.0"}
