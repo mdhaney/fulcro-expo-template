@@ -16,7 +16,8 @@
 
       (if-not first-call?
         (when-let [root @root-component-ref]
-          (.forceUpdate ^js root))
+          (.forceUpdate ^js root)
+          root-component-ref)
         (let [Root
               (crc
                 #js {:componentDidMount
@@ -36,9 +37,8 @@
                              body)
                            (catch :default e
                              (log/error e "Render failed")))))})]
-          (js/console.log Root)
-
-          (expo/registerRootComponent Root))))
+          (expo/registerRootComponent Root)
+          root-component-ref)))
     (catch :default e
       (log/error e "Unable to mount/refresh"))))
 
