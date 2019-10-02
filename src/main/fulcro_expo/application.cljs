@@ -10,30 +10,37 @@
 (defonce root-component-ref (atom nil))
 
 (defn render-root [root]
-  (let [first-call? (nil? @root-ref)]
-    (reset! root-ref root)
+  (try
+    (let [first-call? (nil? @root-ref)]
+      (reset! root-ref root)
 
-    (if-not first-call?
-      (when-let [root @root-component-ref]
-        (.forceUpdate ^js root))
-      (let [Root
-            (crc
-              #js {:componentDidMount
-                   (fn []
-                     (this-as this
-                       (reset! root-component-ref this)))
-                   :componentWillUnmount
-                   (fn []
-                     (reset! root-component-ref nil))
-                   :render
-                   (fn []
-                     (let [body @root-ref]
-                       (log/spy :info body)
-                       (if (fn? body)
-                         (body)
-                         body)))})]
+      (if-not first-call?
+        (when-let [root @root-component-ref]
+          (.forceUpdate ^js root))
+        (let [Root
+              (crc
+                #js {:componentDidMount
+                     (fn []
+                       (this-as this
+                         (reset! root-component-ref this)))
+                     :componentWillUnmount
+                     (fn []
+                       (reset! root-component-ref nil))
+                     :render
+                     (fn []
+                       (let [body @root-ref]
+                         (log/spy :info body)
+                         (try
+                           (if (fn? body)
+                             (body)
+                             body)
+                           (catch :default e
+                             (log/error e "Render failed")))))})]
+          (js/console.log Root)
 
-        (expo/registerRootComponent Root)))))
+          (expo/registerRootComponent Root))))
+    (catch :default e
+      (log/error e "Unable to mount/refresh"))))
 
 
 (defonce app
