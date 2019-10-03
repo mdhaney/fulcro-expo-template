@@ -30,15 +30,13 @@
                      :render
                      (fn []
                        (let [body @root-ref]
-                         (log/spy :info body)
                          (try
                            (if (fn? body)
                              (body)
                              body)
                            (catch :default e
                              (log/error e "Render failed")))))})]
-          (expo/registerRootComponent Root)
-          root-component-ref)))
+          (expo/registerRootComponent Root))))
     (catch :default e
       (log/error e "Unable to mount/refresh"))))
 

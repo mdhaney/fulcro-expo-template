@@ -10,4 +10,4 @@
   (rn/view {:style {:height          "100%" :width "100%"
                     :justify-content "center"
                     :align-items     "center"}}
-    (rn/text {:style {}} (str "A" some-crap))))
+    (rn/text {:style {}} (str "P" some-crap))))

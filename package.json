@@ -26,11 +26,11 @@
     "react-native-qrcode-svg": "^5.1.2",
     "react-native-svg": "^9.5.1",
     "reakit": "^0.11.1",
-    "shadow-cljs": "2.8.58"
+    "shadow-cljs": "2.8.39"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
-    "shadow-cljs": "2.8.58"
+    "shadow-cljs": "2.8.39"
   },
   "private": true
 }
