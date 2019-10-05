@@ -1,8 +1,8 @@
-{:lein   {:profile "cljs"}
+{:deps   {:aliases [:dev]}
  :nrepl  {:port 9000}
- :builds {:app {:target :react-native
-                :init-fn fulcro-expo.app/init
-                :output-dir "app"
+ :builds {:app {:target           :react-native
+                :init-fn          fulcro-expo.app/init
+                :output-dir       "app"
                 :compiler-options {:infer-externs :auto}
-                :devtools {:autoload true
-                           :preloads [shadow.expo.keep-awake]}}}}
+                :devtools         {:autoload true
+                                   :preloads [shadow.expo.keep-awake]}}}}

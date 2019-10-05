@@ -1,10 +1,8 @@
 # Fulcro Expo Template
 
-A bare-bones project using Fulcro 2.8 with Expo 35.
+NOTE: README from the 2.x template, so not sure if it all works.
 
-## TODO
-- Upgrade shadow-cljs to newer version and remove the source patch
-- Upgrade Fulcro to v3
+A bare-bones project using Fulcro 3 with Expo 35.
 
 ## Dev setup
 - Install yarn
@@ -12,7 +10,6 @@ A bare-bones project using Fulcro 2.8 with Expo 35.
 - Do NOT install shadow-cljs globally (will run from the project version)
 - Add this line to .bash_profile: `export NODE_OPTIONS=--max_old_space_size=4096`
 - You will need Xcode for the iOS emulator
-
 
 ## Android emulator setup
 - Install the Android SDK
